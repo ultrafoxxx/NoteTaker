@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Note Taker</string>
+    <string name="no_elements_info">There are no notes at the time</string>
+    <string name="new_note">Add new note</string>
+    <string name="scanned_option">Add note with scanned text</string>
+    <string name="date_format">dd-MM-yyyy HH:mm:ss</string>
 </resources>
