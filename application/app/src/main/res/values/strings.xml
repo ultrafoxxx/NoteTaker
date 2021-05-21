@@ -4,4 +4,8 @@
     <string name="new_note">Add new note</string>
     <string name="scanned_option">Add note with scanned text</string>
     <string name="date_format">dd-MM-yyyy HH:mm:ss</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="add_note_title">Add note title</string>
+    <string name="add_note_content">Add note content</string>
 </resources>

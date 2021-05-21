@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -39,6 +40,12 @@ public class MainActivity extends AppCompatActivity implements AdapterHelper {
 
         assignViews();
         assignDataToViews();
+        newNoteOption.setOnClickListener(this::onNewNoteOptionClicked);
+    }
+
+    private void onNewNoteOptionClicked(View view) {
+        Intent intent = new Intent(this, AddNoteActivity.class);
+        startActivity(intent);
     }
 
     private void assignDataToViews() {
