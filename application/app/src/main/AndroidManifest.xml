@@ -10,7 +10,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.NoteTaker">
-        <activity android:name=".activities.AddNoteActivity"></activity>
+        <activity android:name=".activities.ViewPhotoActivity"></activity>
+        <activity android:name=".activities.ScanNoteActivity" />
+        <activity android:name=".activities.AddNoteActivity" />
         <activity android:name=".activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,10 +20,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <meta-data
+            android:name="com.google.mlkit.vision.DEPENDENCIES"
+            android:value="ocr" />
     </application>
 
     <uses-feature
-        android:name="android.hardware.camera"
+        android:name="android.hardware.camera.any"
         android:required="true" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
 
 </manifest>

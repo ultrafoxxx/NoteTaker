@@ -1,66 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.NoteFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/outlinedTextField"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/outlinedTextField"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/standard_space_between_elements"
+        android:layout_marginTop="@dimen/standard_space_between_elements"
+        android:layout_marginEnd="@dimen/standard_space_between_elements"
+        app:layout_constraintVertical_chainStyle="spread"
+        android:hint="@string/add_note_title"
+        app:counterEnabled="true"
+        app:counterMaxLength="30"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/title_text_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/standard_space_between_elements"
-            android:layout_marginTop="@dimen/standard_space_between_elements"
-            android:layout_marginEnd="@dimen/standard_space_between_elements"
-            app:layout_constraintVertical_chainStyle="spread"
-            android:hint="@string/add_note_title"
-            app:counterEnabled="true"
-            app:counterMaxLength="30"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            android:inputType="text"
+            android:maxLength="30"
+            android:maxLines="1" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/title_text_input"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="text"
-                android:maxLength="30"
-                android:maxLines="1" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-        </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/standard_space_between_elements"
+        android:layout_marginTop="@dimen/standard_space_between_elements"
+        android:layout_marginEnd="@dimen/standard_space_between_elements"
+        android:layout_marginBottom="15dp"
+        android:hint="@string/add_note_content"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/outlinedTextField"
+        app:layout_constraintVertical_chainStyle="spread">
 
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/content_text_input"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/standard_space_between_elements"
-            android:layout_marginTop="@dimen/standard_space_between_elements"
-            android:layout_marginEnd="@dimen/standard_space_between_elements"
-            android:layout_marginBottom="15dp"
-            android:hint="@string/add_note_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/outlinedTextField"
-            app:layout_constraintVertical_chainStyle="spread">
+            android:layout_height="match_parent"
+            android:gravity="top"
+            android:inputType="textMultiLine"
+            android:isScrollContainer="true"
+            android:maxLines="20"
+            android:minLines="10" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/content_text_input"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="top"
-                android:inputType="textMultiLine"
-                android:isScrollContainer="true"
-                android:minLines="10"
-                android:maxLines="20"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
-        </com.google.android.material.textfield.TextInputLayout>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    <Button
+        android:id="@+id/button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="15dp"
+        android:text="Confirm note"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-</ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

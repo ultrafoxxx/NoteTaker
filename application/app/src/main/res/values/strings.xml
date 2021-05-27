@@ -8,4 +8,8 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="add_note_title">Add note title</string>
     <string name="add_note_content">Add note content</string>
+    <string name="scan_photo">Scan photo</string>
+    <string name="cancel">Cancel</string>
+    <string name="file_name_key">fileName</string>
+    <string name="scan_text_key">scan_text</string>
 </resources>

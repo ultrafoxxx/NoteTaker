@@ -14,10 +14,14 @@ public class AddNoteActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_note);
 
+        String recognitionResult = getIntent().getStringExtra(getString(R.string.scan_text_key));
+        Bundle bundle = new Bundle();
+        bundle.putString(getString(R.string.scan_text_key), recognitionResult);
+
         getSupportFragmentManager()
                 .beginTransaction()
                 .setReorderingAllowed(true)
-                .add(R.id.fragment_container, NoteFragment.class, null)
+                .add(R.id.fragment_container, NoteFragment.class, bundle)
                 .commit();
     }
 }
