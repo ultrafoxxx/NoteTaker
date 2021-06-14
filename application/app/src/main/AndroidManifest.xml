@@ -10,7 +10,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.NoteTaker">
-        <activity android:name=".activities.ViewPhotoActivity"></activity>
+        <activity android:name=".activities.DetailsActivity"></activity>
+        <activity android:name=".activities.ViewPhotoActivity" />
         <activity android:name=".activities.ScanNoteActivity" />
         <activity android:name=".activities.AddNoteActivity" />
         <activity android:name=".activities.MainActivity">
@@ -20,6 +21,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.holzhausen.mediastore.authority2"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
         <meta-data
             android:name="com.google.mlkit.vision.DEPENDENCIES"
             android:value="ocr, ica" />

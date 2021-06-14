@@ -4,10 +4,11 @@ import androidx.room.Embedded;
 import androidx.room.Junction;
 import androidx.room.Relation;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
 
-public class NoteInfo {
+public class NoteInfo implements Serializable {
 
     @Embedded
     private Note note;

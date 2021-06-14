@@ -49,6 +49,8 @@ public class MainActivity extends AppCompatActivity implements AdapterHelper {
 
     private NoteDao noteDao;
 
+    private NoteAdapter adapter;
+
     private ActivityResultLauncher<Intent> scanResultLauncher;
 
     private ActivityResultLauncher<Intent> viewImageResultLauncher;
@@ -135,7 +137,7 @@ public class MainActivity extends AppCompatActivity implements AdapterHelper {
 
     private void assignDataToViews() {
         noteDao = ((NoteTakerApp)getApplication()).getDatabase().noteDao();
-        final NoteAdapter adapter = new NoteAdapter(noteDao.getAll(), this);
+        adapter = new NoteAdapter(noteDao.getAll(), this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
@@ -163,5 +165,16 @@ public class MainActivity extends AppCompatActivity implements AdapterHelper {
     @Override
     public Context getContext() {
         return this;
+    }
+
+    @Override
+    public View.OnClickListener getItemListener() {
+        return view -> {
+            int position = recyclerView.getChildLayoutPosition(view);
+            NoteInfo noteInfo = adapter.getNotes().get(position);
+            Intent intent = new Intent(this, DetailsActivity.class);
+            intent.putExtra(getString(R.string.note_key), noteInfo);
+            startActivity(intent);
+        };
     }
 }

@@ -4,10 +4,11 @@ import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
-public class Image {
+public class Image implements Serializable {
 
     public Image(@NonNull String fileName, long noteId) {
         this.fileName = fileName;

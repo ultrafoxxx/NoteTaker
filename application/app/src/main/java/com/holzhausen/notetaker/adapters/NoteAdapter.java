@@ -14,6 +14,7 @@ import com.holzhausen.notetaker.models.NoteInfo;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
 
@@ -32,6 +33,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>{
     private AdapterHelper helper;
 
     public NoteAdapter(Flowable<List<NoteInfo>> noteFlowable, AdapterHelper helper){
+        notes = new LinkedList<>();
         compositeDisposable = new CompositeDisposable();
         this.helper = helper;
         Disposable disposable = noteFlowable.subscribeOn(Schedulers.io())
@@ -49,6 +51,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>{
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         final View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.note_itemd, parent, false);
+        view.setOnClickListener(helper.getItemListener());
         return new ViewHolder(view);
     }
 
@@ -77,6 +80,10 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>{
     public void onDetachedFromRecyclerView(@NonNull RecyclerView recyclerView) {
         super.onDetachedFromRecyclerView(recyclerView);
         compositeDisposable.dispose();
+    }
+
+    public List<NoteInfo> getNotes() {
+        return notes;
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -114,6 +121,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>{
         public Group getGroup() {
             return group;
         }
+
     }
 
 }

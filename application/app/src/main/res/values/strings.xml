@@ -20,4 +20,6 @@
     <string name="multimedia_tag_hint">Add tag</string>
     <string name="add_photo">Add photo</string>
     <string name="add_tag">Add tag</string>
+    <string name="vie_image_type">image/*</string>
+    <string name="authority">com.holzhausen.mediastore.authority2</string>
 </resources>
