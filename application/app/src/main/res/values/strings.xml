@@ -12,4 +12,12 @@
     <string name="cancel">Cancel</string>
     <string name="file_name_key">fileName</string>
     <string name="scan_text_key">scan_text</string>
+    <string name="confirm_note">Confirm note</string>
+    <string name="note_key">note_key</string>
+    <string name="empty_fields_info">Both fields cannot be empty</string>
+    <string name="set_alarm">set alarm</string>
+    <string name="wrong_alarm_info">Cannot set alarm in the past! You don\'t have time machine</string>
+    <string name="multimedia_tag_hint">Add tag</string>
+    <string name="add_photo">Add photo</string>
+    <string name="add_tag">Add tag</string>
 </resources>

@@ -7,6 +7,7 @@ import androidx.room.TypeConverters;
 import com.holzhausen.notetaker.converters.Converters;
 import com.holzhausen.notetaker.daos.ImageDao;
 import com.holzhausen.notetaker.daos.NoteDao;
+import com.holzhausen.notetaker.daos.NoteTagsCrossRefDao;
 import com.holzhausen.notetaker.daos.TagDao;
 import com.holzhausen.notetaker.models.Image;
 import com.holzhausen.notetaker.models.Note;
@@ -25,5 +26,6 @@ public abstract class AppDatabase extends RoomDatabase {
     public abstract ImageDao imageDao();
     public abstract NoteDao noteDao();
     public abstract TagDao tagDao();
+    public abstract NoteTagsCrossRefDao noteTagsCrossRefDao();
 
 }

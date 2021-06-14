@@ -14,12 +14,13 @@ import java.util.List;
 
 import io.reactivex.Completable;
 import io.reactivex.Flowable;
+import io.reactivex.Single;
 
 @Dao
 public interface NoteDao {
 
     @Insert
-    Completable insert(Note... note);
+    Single<Long> insert(Note note);
 
     @Update
     Completable update(Note note);

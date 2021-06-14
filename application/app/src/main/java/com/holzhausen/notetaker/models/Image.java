@@ -9,6 +9,11 @@ import java.util.Objects;
 @Entity
 public class Image {
 
+    public Image(@NonNull String fileName, long noteId) {
+        this.fileName = fileName;
+        this.noteId = noteId;
+    }
+
     @PrimaryKey
     @NonNull
     private String fileName;

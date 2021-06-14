@@ -13,6 +13,10 @@ public class Tag {
     @NonNull
     private String tagName;
 
+    public Tag(@NonNull String tagName) {
+        this.tagName = tagName;
+    }
+
     public String getTagName() {
         return tagName;
     }
